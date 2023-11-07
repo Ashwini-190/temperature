@@ -1,0 +1,151 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+}
+.temp-bg{
+    width: 100%;
+    height: 100vh;
+    background-image:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)) ,  url('climate.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+     padding-top: 6%;
+}
+#form{
+    height: 85vh;
+    width:70%;
+    margin: 0 auto;
+    text-align: center;
+    border:1px solid black;
+    padding-top: 15%;
+    
+    
+}
+#fahrenheit , #celcius{
+    background-color: rgba(0,0,0, 0.221);
+}
+.button{
+    background-color: rgba(0,0,0,1);
+    border-radius: 4px;
+    padding: 20px;
+    font-size: 18px;
+    color: white;
+    cursor: pointer;
+    border: none;
+    border: 1px solid white;
+    transition: all 0.3s;
+}
+input{
+    padding: 20px;
+    font-size: 18px;
+    border: none;
+    transition: all 0.3s;
+    border: 1px solid white;
+}
+label{
+    font-size: 25px;
+    margin-right: 15px;
+}
+.button:hover{
+    background-color: rgba(25, 51, 77,1);
+    border: 2px solid darkgray;
+}
+input:hover{
+    border: 2px solid darkgray;
+}
+@media screen and (max-width:810px){
+    .button, input{
+        padding:10px;
+    }
+    #form{
+        width:90%;
+    }
+}
+@media screen and (max-width:600px){
+    label{
+        font-size: 35px;
+        font-weight: 500;
+        padding-bottom:10px;
+    }
+    #form{
+        width:98%;
+    }
+    .button, input{
+        margin-top: 20px;
+    }
+    input{
+        width:50%;
+    }
+    .button{
+        font-size: 30px;
+        color:lightgray
+    }
+}
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="temp.css">
+</head>
+
+<body>
+    <div class="temp-top" id="temp-top1">
+        <div class="temp-bg">
+            <div class="cover">
+                <div id="form">
+                    <label for="celcius">Celcius</label>
+                    <input type=" number" id="celcius"  placeholder="Enter Celcius">
+                    <button class="button" onclick="convertFahrenheit()">Convertfahrenheit</button>
+                    <br><br>
+                    <label for="fahrenheit">Fahrenheit</label>
+                    <input type=" number" id="fahrenheit"  placeholder="Enter Fahrenheit"
+                    >
+                    <button class="button" onclick="convertCelcius()">Convertcelcius</button>
+                    <br><br>
+
+                    <button class="button" onclick="reset()">Reset</button>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+<script src="temp.js"></script>
+</body>
+
+</html>
+
+
+
+function convertFahrenheit(){
+    var celcius=parseFloat(document.querySelector("#celcius").value);
+    var fahrenheitresult=(1.8*celcius)+32;
+    var a=fahrenheitresult.toFixed(2);
+document.querySelector("#celcius").value=celcius;
+document.querySelector("#fahrenheit").value=a;
+}
+function convertCelcius(){
+    var fahrenheit=parseFloat(document.querySelector("#fahrenheit").value);
+    var celciusresult=(fahrenheit-32)/1.8;
+    var b=celciusresult.toFixed(2);
+document.querySelector("#celcius").value=b;
+document.querySelector("#fahrenheit").value=fahrenheit;
+
+}
+const reset=()=>{
+    document.querySelector("#celcius").value=" ";
+    document.querySelector("#fahrenheit").value=" ";
+}
+
+# OIBSIP-3
+this is a simple temperature converter website.
